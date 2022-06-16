@@ -27,7 +27,7 @@ app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => res.render('index', {
     title : "Recipe",
-    recipes
+    recipes : recipes
 }));
 
 //static folder 
@@ -39,7 +39,7 @@ app.get('/recipe/:food', (req, res)=> {
     
 })
 
-// create arecipe
+// create a recipe
 app.post('/recipe', (req, res)=> {
    const newRecipe = {
     id: uuid.v4(),
