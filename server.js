@@ -2,8 +2,11 @@
 
 
 
+
+
 const express = require("express");
 const path = require('path');
+const recipes = require('./Data_recipes');
 
 
 const app = express();
@@ -11,7 +14,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/recipe/:food', (req, res)=> {
-    res.send('<h1> Recipe </h1>');
+    res.json({name: req.params.food});
 })
 
 
