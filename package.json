@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "express": "^4.18.1"
-  }
+  },
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "name": "newrecipe",
+  "version": "1.0.0",
+  "description": "recipe book",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwarfsuomalainen/newRecipe.git"
+  },
+  "author": "Roman Bogoudinov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dwarfsuomalainen/newRecipe/issues"
+  },
+  "homepage": "https://github.com/dwarfsuomalainen/newRecipe#readme"
 }
