@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "node ./server.js",
@@ -10,7 +11,6 @@
   "version": "1.0.0",
   "description": "recipe book",
   "main": "server.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dwarfsuomalainen/newRecipe.git"
