@@ -6,10 +6,19 @@ if(document.readyState !== "loading") {
     document.addEventListener('DOMContentLoaded', function(){init()});
 }
 
+
+
+
 function init(){
+
+
 let page_h = document.createElement("h1");
 page_h.innerHTML = '<h1>Recipes</h1>';
 document.body.appendChild(page_h);
+
+let namefromApi = document.createElement('h2');
+namefromApi.innerText = 'namefromApiValue.name';
+document.body.append(namefromApi);
 
 
 let newRecipe = document.createElement('div');
