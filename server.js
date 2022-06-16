@@ -12,11 +12,20 @@ const recipes = require('./Data_recipes');
 const app = express();
 //static folder 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
 
 app.get('/recipe/:food', (req, res)=> {
     res.json({name: req.params.food});
     //res.json(recipes.filter(recipes => recipes.name === req.params.food));
     
+})
+
+// create arecipe
+app.post('/recipe', (req, res)=> {
+   const newRecipe = {
+    
+   } 
 })
 
 
