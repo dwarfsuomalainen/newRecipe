@@ -14,7 +14,8 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/recipe/:food', (req, res)=> {
-    res.json({name: req.params.food});
+    //res.json({name: req.params.food});
+    res.json(recipes.filter(recipes => recipes.name === req.params.food));
 })
 
 
