@@ -8,15 +8,30 @@ const express = require("express");
 const path = require('path');
 const recipes = require('./Data_recipes');
 const uuid = require('uuid');
+const exphbs = require('express-handlebars');
+
+
+
+//handlebars
+
+
 
 
 
 const app = express();
-//static folder 
-app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
+app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
+app.get('/', (req, res) => res.render('index', {
+    title : "Recipe",
+    recipes
+}));
+
+//static folder 
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/recipe/:food', (req, res)=> {
     res.json({name: req.params.food});
