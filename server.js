@@ -9,6 +9,7 @@ const path = require('path');
 const recipes = require('./Data_recipes');
 const uuid = require('uuid');
 const exphbs = require('express-handlebars');
+const { json } = require("body-parser");
 
 
 
@@ -27,7 +28,10 @@ app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => res.render('index', {
     title : "Recipe",
-    recipes : recipes
+    name : recipes[0].name,
+    ingredients : recipes[0].ingredients ,
+    instructions : recipes[0].instructions
+    
 }));
 
 //static folder 
