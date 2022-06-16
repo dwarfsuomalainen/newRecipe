@@ -14,11 +14,6 @@ const { json } = require("body-parser");
 
 
 //handlebars
-
-
-
-
-
 const app = express();
 
 app.use(express.json());
@@ -56,12 +51,13 @@ app.post('/recipe', (req, res)=> {
    res.json(recipes);
 })
 
-/*/upload image
+//upload image
     app.post('/image', (req, res)=> {
     
     } 
     
- })*/
+    
+ )
 
 
 const port = process.env.port || 1234;
