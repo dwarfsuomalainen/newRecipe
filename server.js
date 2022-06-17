@@ -26,8 +26,7 @@ app.get('/', (req, res) => res.render('index', {
     name : recipes[0].name,
     ingredients : recipes[0].ingredients ,
     instructions : recipes[0].instructions
-    
-}));
+    }));
 
 //static folder 
 app.use(express.static(path.join(__dirname, 'public')));
