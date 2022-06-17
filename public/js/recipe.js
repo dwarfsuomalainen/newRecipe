@@ -61,17 +61,7 @@ let newRecipeSubmit = document.createElement('button');
 newRecipeSubmit.id= "submit";
 newRecipeSubmit.innerText = 'Submit';
 newRecipeDiv.appendChild(newRecipeSubmit);
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+let getPasta = await fetch('http://localhost:1234/recipe/pasta');
+let recipePasta = getPasta.json();
