@@ -50,7 +50,8 @@ app.post('/recipe', (req, res)=> {
 
    } 
    recipes.push(newRecipe);
-   res.json(recipes);
+   //res.json(recipes);
+   res.redirect('/')
 })
 
 //upload image

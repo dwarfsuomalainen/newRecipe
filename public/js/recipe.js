@@ -8,9 +8,6 @@ if(document.readyState !== "loading") {
     document.addEventListener('DOMContentLoaded', function(){init()});
 }
 
-
-
-
 function init(){
 fetchPasta();
 
@@ -85,3 +82,15 @@ recipeInstr.innerHTML = p;
 
 }
 //console.log(recipePasta[0].name);
+
+let btn = document.getElementById("button123");
+console.log(btn);
+btn.addEventListener('click', addIngredient);
+
+
+function addIngredient(){
+    console.log('oink');
+   let addIngLine = document.getElementById('addIng');
+   console.log(addIngLine);
+   addIngLine.appendChild(document.createElement('textarea'));
+}
