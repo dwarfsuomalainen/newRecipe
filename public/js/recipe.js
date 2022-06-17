@@ -83,7 +83,7 @@ recipeInstr.innerHTML = p;
 }
 //console.log(recipePasta[0].name);
 
-let btn = document.getElementById("button123");
+let btn = document.getElementById("add-ingredient");
 console.log(btn);
 btn.addEventListener('click', addIngredient);
 
@@ -93,4 +93,16 @@ function addIngredient(){
    let addIngLine = document.getElementById('addIng');
    console.log(addIngLine);
    addIngLine.appendChild(document.createElement('textarea'));
+}
+
+let btn2 = document.getElementById("add-instruction");
+console.log(btn2);
+btn2.addEventListener('click', addInstruction);
+
+
+function addInstruction(){
+    console.log('oink');
+   let addIngLine1 = document.getElementById('addInst');
+   console.log(addIngLine1);
+   addIngLine1.appendChild(document.createElement('textarea'));
 }
