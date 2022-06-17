@@ -62,6 +62,7 @@ newRecipeSubmit.id= "submit";
 newRecipeSubmit.innerText = 'Submit';
 newRecipeDiv.appendChild(newRecipeSubmit);
 }
-
+async function fetchPasta(){
 let getPasta = await fetch('http://localhost:1234/recipe/pasta');
 let recipePasta = await getPasta.json();
+}
