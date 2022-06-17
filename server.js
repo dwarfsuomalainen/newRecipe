@@ -33,7 +33,7 @@ app.get('/', (req, res) => res.render('index', {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/recipe/:food', (req, res)=> {
-    res.json({name: req.params.food});
+    res.json({name: req.params.food, ingredients: recipes[0].ingredients, instructions: recipes[0].instructions});
     //res.json(recipes.filter(recipes => recipes.name === req.params.food));
     
 })
