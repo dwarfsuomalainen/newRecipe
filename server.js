@@ -8,7 +8,7 @@ const express = require("express");
 const path = require('path');
 const recipes = require('./Data_recipes');
 const uuid = require('uuid');
-const exphbs = require('express-handlebars');
+//const exphbs = require('express-handlebars');
 const { json } = require("body-parser");
 
 
@@ -18,16 +18,19 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
-app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+//app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}));
+//app.set('view engine', 'handlebars');
 
-app.get('/', (req, res) => res.render('index', {
+/*app.get('/', (req, res) => res.render('index', {
     title : "Recipe",
     name : recipes[0].name,
     ingredients : recipes[0].ingredients ,
     instructions : recipes[0].instructions
-    }));
+    }));*/
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/index.html'));
+        });
 //static folder 
 app.use(express.static(path.join(__dirname, 'public')));
 

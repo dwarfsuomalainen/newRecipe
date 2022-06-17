@@ -1,3 +1,5 @@
+//const { allowedNodeEnvironmentFlags } = require("process");
+
 let recipe_fetched = document.createElement('div');
 
 if(document.readyState !== "loading") {
@@ -10,16 +12,16 @@ if(document.readyState !== "loading") {
 
 
 function init(){
+fetchPasta();
 
 
-let page_h = document.createElement("h1");
+/*let page_h = document.createElement("h1");
 page_h.innerHTML = '<h1>Recipes</h1>';
 document.body.appendChild(page_h);
 
 let namefromApi = document.createElement('h2');
 namefromApi.innerText = 'namefromApiValue.name';
 document.body.append(namefromApi);
-
 
 let newRecipe = document.createElement('div');
 newRecipe.id= "newRecipe";
@@ -60,9 +62,26 @@ newRecipeDiv.appendChild(newRecipePhoto);
 let newRecipeSubmit = document.createElement('button');
 newRecipeSubmit.id= "submit";
 newRecipeSubmit.innerText = 'Submit';
-newRecipeDiv.appendChild(newRecipeSubmit);
+newRecipeDiv.appendChild(newRecipeSubmit);*/
+
 }
-async function fetchPasta(){
+async function fetchPasta() {
 let getPasta = await fetch('http://localhost:1234/recipe/pasta');
 let recipePasta = await getPasta.json();
+console.log(recipePasta);
+let nameI = recipePasta.name;
+let ingredientsI = recipePasta.ingredients;
+let instructionsI = recipePasta.instructions;
+
+toIndex(nameI, ingredientsI, instructionsI);
 }
+function toIndex(x,y,p) {
+let recipeName = document.getElementById('recipename');
+recipeName.innerHTML = x;
+let recipeIngr = document.getElementById('reciepeIngredients');
+recipeIngr.innerHTML = y;
+let recipeInstr = document.getElementById('recipeInstructions');
+recipeInstr.innerHTML = p;
+
+}
+//console.log(recipePasta[0].name);
