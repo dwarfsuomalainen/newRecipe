@@ -43,7 +43,7 @@ app.get('/recipe/:food', (req, res)=> {
 // create a recipe
 app.post('/recipe', (req, res)=> {
    const newRecipe = {
-    id: uuid.v4(),
+    
     name: req.body.name,
     ingredients: req.body.ingredients,
     instructions: req.body.instructions
@@ -51,7 +51,7 @@ app.post('/recipe', (req, res)=> {
    } 
    recipes.push(newRecipe);
    //res.json(recipes);
-   res.redirect('/')
+   res.send(newRecipe);
 })
 
 //upload image
