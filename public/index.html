@@ -5,7 +5,7 @@
     <title>Recipe</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="./stylesheets/styles.css"/>
-    <script src="./js/recipe.js"></script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1" />
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -36,31 +36,32 @@
     <h4 id = recipeInstructions></h4>
     </div>
     <div class="col">
+        <form action="/recipe/" method="post">
     <label for="name-text">name</label>
-    <input type="text" id="name-text">
+    <input type="text" id="name-text" name="name">
     <h4>Ingredients</h4>
     <div class="row">
           <form class="col s12">
               <div class="row">
-              <div class="input-field col s12">
-                <textarea id="ingredients-text" class="materialize-textarea" id="ingredients-text" data-length="120"></textarea>
+              <div class="input-field col s12" id="addIng">
+                <textarea id="ingredients-text" name="ingredients" class="materialize-textarea"  data-length="120"></textarea>
                 <label for="ingredients-text">Ingredients</label>
               </div>
             </div>
             </form>
-        <button class="btn" id="add-ingredient" type="button">Add ingredient</button>
+        <button class="btn" id="button123" type="button">Add ingredient</button>
       
     <h4>instructions</h4>
     <div class="row">
           <form class="col s12">
               <div class="row">
               <div class="input-field col s12">
-                <textarea id="instructions-text" class="materialize-textarea" id="add-instruction" data-length="120"></textarea>
-                <label for="add-instructions">Instructions</label>
+                <textarea id="instructions-text" name="Instructions" class="materialize-textarea" id="add-instruction" data-length="120"></textarea>
+                <label for="instructions-text">Instructions</label>
               </div>
             </div>
             </form>
-        <button class="btn" id="add-instruction" type="button">Add instruction</button>
+        <button class="btn" id="add-instruction11" type="button">Add instruction</button>
     
     
     <form action="#">
@@ -77,9 +78,9 @@
     <br><br><br>
     </form>
     <button class="btn" id="submit" type="submit">Submit</button>
+    
     </div>
     </div>
-
-
-</body>
+    <script src="./js/recipe.js"></script>
+    </body>
 </html>
