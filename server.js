@@ -62,6 +62,7 @@ app.post('/image', (req, res)=> {
     
     console.log(req.files);
     res.send(console.log('uploaded'));
+    res.redirect('/');
     } 
     
     

@@ -112,9 +112,12 @@ submitUpload.addEventListener('click', uploadPhoto);
 
 function uploadPhoto(){
 var formData = new FormData();
+
 let photos = document.getElementById('image-input');
-console.log(formData.entries);
-formData.append("images", photos.files[0]);
+
+let files = photos.files[0];
+console.log(files);
+formData.set("images", files);
 console.log(formData);
 
 //var upload = new FormData(photos);
