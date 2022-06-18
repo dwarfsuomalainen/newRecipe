@@ -80,6 +80,7 @@ recipeIngr.innerHTML = y;
 let recipeInstr = document.getElementById('recipeInstructions');
 recipeInstr.innerHTML = p;
 
+
 }
 //console.log(recipePasta[0].name);
 
@@ -107,17 +108,18 @@ function addInstruction(){
    addIngLine1.appendChild(document.createElement('textarea'));
 }
 
-let submitUpload = document.getElementById('submit');
-submitUpload.addEventListener('click', uploadPhoto);
+//let submitUpload = document.getElementById('submit');
+//submitUpload.addEventListener('click', uploadPhoto);
+//document.getElementById('submit'),('click', uploadPhoto);
 
 function uploadPhoto(){
 var formData = new FormData();
 
 let photos = document.getElementById('image-input');
 
-let files = photos.files[0];
+let files = photos.files;
 console.log(files);
-formData.set("images", files);
+formData.append("images", files);
 console.log(formData);
 
 //var upload = new FormData(photos);

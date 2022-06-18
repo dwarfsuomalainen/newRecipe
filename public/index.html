@@ -36,7 +36,7 @@
     <h4 id = recipeInstructions></h4>
     </div>
     <div class="col">
-        <form action="/recipe/" method="post">
+    <form action="/recipe/" method="post">
     <label for="name-text">name</label>
     <input type="text" id="name-text" name="name">
     <h4>Ingredients</h4>
@@ -63,15 +63,18 @@
             </form>
         <button class="btn" id="add-instruction" type="button">Add instruction</button>
     
+    </form>
     
-    
-        <form action="/images/" method="post">
+        <form action="/images/" method="post" enctype="multipart/form-data">
             <div class="file-field input-field">
+                <label for="image-input">Upload your photos</label><br><br><br>
               <div class="btn">
+                
                 <span>File</span>
-                <label for="image-input">Upload your photos</label>
+                
+                
                 <input type="file" id="image-input"accept="image/png, image/jpeg" multiple>
-                <br><br><br>
+                
               </div>
               <div class="file-path-wrapper">
                 <br><br><br>
@@ -82,8 +85,8 @@
         
 
     <br><br><br>
-    <button class="btn" id="submit" type="submit">Submit</button>
-</form>
+    <button class="btn" id="submit" type="submit" onclick="uploadPhoto();">Submit</button>
+
     
     
     </div>
