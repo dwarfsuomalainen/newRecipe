@@ -106,3 +106,16 @@ function addInstruction(){
    console.log(addIngLine1);
    addIngLine1.appendChild(document.createElement('textarea'));
 }
+
+let submitUpload = document.getElementById('submit');
+submitUpload.addEventListener('click', uploadPhoto);
+
+function uploadPhoto(){
+let photos = document.getElementById('image-input');
+console.log(photos.files);
+var formData = new FormData();
+formData.append("images", photos.files);
+console.log(photos.files);
+
+//var upload = new FormData(photos);
+}

@@ -10,6 +10,7 @@ const recipes = require('./Data_recipes');
 const uuid = require('uuid');
 //const exphbs = require('express-handlebars');
 const { json } = require("body-parser");
+const formData = require('express-form-data');
 
 
 
@@ -41,6 +42,7 @@ app.get('/recipe/:food', (req, res)=> {
 })
 
 // create a recipe
+
 app.post('/recipe', (req, res)=> {
    const newRecipe = {
     
@@ -55,12 +57,15 @@ app.post('/recipe', (req, res)=> {
 })
 
 //upload image
-    app.post('/image', (req, res)=> {
+app.use(formData.parse());    
+app.post('/image', (req, res)=> {
     
+    console.log(req.files);
+    res.send(console.log('uploaded'));
     } 
     
     
- )
+)
 
 
 const port = process.env.port || 1234;
