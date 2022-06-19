@@ -13,6 +13,9 @@ const { json } = require("body-parser");
 const formData = require('express-form-data');
 const fileUpload = require('express-fileupload');
 const { data } = require("jquery");
+const _ = require('lodash');
+const morgan = require('morgan');
+const cors = require('cors');
 
 
 //handlebars
@@ -64,16 +67,16 @@ app.use(formData.parse());
 app.post('/image', async (req, res)=> {
     
     //console.log(req.files);
-    //res.send(console.log('uploaded'));
+    res.send(console.log('uploaded'));
     //res.redirect('/');
-    try {
+    /*try {
         if(!req.files){
             res.send({
                 status: false,
                 message: 'fail!'
             });
         } else {
-            __dirname.forEach(_.keysIn(req.files), (key) => {
+            _.forEach(_.keysIn(req.files), (key) => {
                 let photo = req.files[key];
                 photo.mv('./image'+ photo.name);
 
@@ -93,8 +96,8 @@ app.post('/image', async (req, res)=> {
 
         } catch (err) {
             res.status(500).send(err);
-    }
-});
+    }*/
+})
     
 
 
