@@ -112,14 +112,14 @@ function addInstruction(){
 let submitUpload = document.getElementById('submit');
 submitUpload.addEventListener('click', uploadPhoto);
 
-function uploadPhoto(){
+async function uploadPhoto(){
 let formData = new FormData();
 
 let photos = document.getElementById('image-input');
 let files = photos.files[0];
 console.log(files);
 formData.append("images", files);
-fetch('/image', {method: 'POST', body: formData});
+await fetch('./image', {method: 'POST', body: formData});
 console.log(formData);
 
 //var upload = new FormData(photos);
