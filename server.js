@@ -11,7 +11,8 @@ const uuid = require('uuid');
 //const exphbs = require('express-handlebars');
 const { json } = require("body-parser");
 const formData = require('express-form-data');
-
+const fileUpload = require('express-fileupload');
+const { data } = require("jquery");
 
 
 //handlebars
@@ -60,15 +61,42 @@ app.post('/recipe', (req, res)=> {
 
 //upload image
 app.use(formData.parse());    
-app.post('/image', (req, res)=> {
+app.post('/image', async (req, res)=> {
     
-    console.log(req.files);
-    res.send(console.log('uploaded'));
-    res.redirect('/');
-    } 
+    //console.log(req.files);
+    //res.send(console.log('uploaded'));
+    //res.redirect('/');
+    try {
+        if(!req.files){
+            res.send({
+                status: false,
+                message: 'fail!'
+            });
+        } else {
+            __dirname.forEach(_.keysIn(req.files), (key) => {
+                let photo = req.files[key];
+                photo.mv('./image'+ photo.name);
+
+                data.push({
+                    name: photo.name,
+                    mimetype: photo.mimetype,
+                    size: photo.size
+                });
+            });
+        
+            res.send({
+                status: true,
+                message: 'uploaded',
+                data: data
+            });
+        }
+
+        } catch (err) {
+            res.status(500).send(err);
+    }
+});
     
-    
-)
+
 
 
 const port = process.env.port || 1234;
