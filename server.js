@@ -57,7 +57,7 @@ app.post('/recipe', (req, res)=> {
    } 
    recipes.push(newRecipe);
    //res.json(recipes);
-   res.send(newRecipe);
+   //res.send(newRecipe);
    //res.redirect('/');
    
 })

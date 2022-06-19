@@ -92,6 +92,7 @@ btn.addEventListener('click', addIngredient);
 function addIngredient(){
     console.log('oink');
    let addIngLine = document.getElementById('addIng');
+   addIngLine.classList.add = 'materialize-textarea';
    console.log(addIngLine);
    addIngLine.appendChild(document.createElement('textarea'));
 }
@@ -108,18 +109,17 @@ function addInstruction(){
    addIngLine1.appendChild(document.createElement('textarea'));
 }
 
-//let submitUpload = document.getElementById('submit');
-//submitUpload.addEventListener('click', uploadPhoto);
-//document.getElementById('submit'),('click', uploadPhoto);
+let submitUpload = document.getElementById('submit');
+submitUpload.addEventListener('click', uploadPhoto);
 
 function uploadPhoto(){
-var formData = new FormData();
+let formData = new FormData();
 
 let photos = document.getElementById('image-input');
-
-let files = photos.files;
+let files = photos.files[0];
 console.log(files);
 formData.append("images", files);
+fetch('/image', {method: 'POST', body: formData});
 console.log(formData);
 
 //var upload = new FormData(photos);
