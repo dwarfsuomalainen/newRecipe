@@ -63,7 +63,7 @@ newRecipeDiv.appendChild(newRecipeSubmit);*/
 
 }
 async function fetchPasta() {
-let getPasta = await fetch('http://localhost:1234/recipe/pasta');
+let getPasta = await fetch('/recipe/pasta');
 let recipePasta = await getPasta.json();
 console.log(recipePasta);
 let nameI = recipePasta.name;
