@@ -114,12 +114,15 @@ let submitUpload = document.getElementById('submit');
 submitUpload.addEventListener('click', uploadPhoto,);
 
 async function uploadPhoto(){
-   
+  
 let formData = new FormData();
 let photos = document.getElementById('image-input');
-let files = photos.files[0];
+let files = photos.files;
+for (let img=0; img < files.lenght; img++) {
 console.log(files);
-formData.append("images", files);
+formData.append("images", files[img]);
+}
+console.log(files);
 await fetch('/image/', {method: 'POST', body: formData});
 console.log(formData);
 
@@ -130,11 +133,11 @@ document.getElementById("submit").addEventListener('click', async (event) => { e
     let RecipeName = document.getElementById('name-text');
     let RecipeIngredients = document.getElementById('ingredients-text')
     let RecipeInstructions = document.getElementById('instructions-text')
-    console.log(RecipeIngredients,RecipeInstructions,RecipeName);
+    console.log(RecipeIngredients.value,RecipeInstructions.value,RecipeName.value);
     const res = await fetch('/recipe/', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify({name: RecipeName, ingredients: RecipeIngredients, instructions: RecipeInstructions})
     });
-
+console.log(res.body);
 });
