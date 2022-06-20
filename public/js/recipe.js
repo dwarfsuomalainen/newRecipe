@@ -120,7 +120,7 @@ let photos = document.getElementById('image-input');
 let files = photos.files[0];
 console.log(files);
 formData.append("images", files);
-await fetch('/image', {method: 'POST', body: formData});
+await fetch('/image/', {method: 'POST', body: formData});
 console.log(formData);
 
 //var upload = new FormData(photos);
