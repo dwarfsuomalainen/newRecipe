@@ -123,7 +123,7 @@ console.log(files);
 formData.append("images", files[img]);
 }
 console.log(files);
-await fetch('/image/', {method: 'POST', body: formData});
+await fetch('/image', {method: 'POT', body: formData});
 console.log(formData);
 
 //var upload = new FormData(photos);
