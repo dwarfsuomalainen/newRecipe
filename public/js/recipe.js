@@ -93,8 +93,10 @@ function addIngredient(){
    let addIngLine = document.getElementById('addIng');
    addIngLine.classList.add = 'materialize-textarea';
    let textarea1 = document.createElement('textarea')
-   textarea1.classList.add = 'ing-newline';
+   textarea1.setAttribute('class','ing-newline');
    addIngLine.appendChild(textarea1);
+   //addIngLine.textarea1.classList.add = 'ing-newline';
+   console.log(addIngLine);
 }
 
 let btn2 = document.getElementById("add-instruction");
@@ -106,8 +108,13 @@ function addInstruction(){
     console.log('oink');
    let addIngLine1 = document.getElementById('addInst');
    console.log(addIngLine1);
-   addIngLine1.classList.add ='ing-newline';
-   addIngLine1.appendChild(document.createElement('textarea'));
+   addIngLine1.classList.add = 'materialize-textarea';
+   let textarea2 = document.createElement('textarea')
+   textarea2.setAttribute("class", "ins-newline");
+   textarea2.classList.add ='ins-newline';
+   addIngLine1.appendChild(textarea2);
+   //addIngLine1.textarea2.classList.add ='ins-newline';
+   console.log(addIngLine1);
 }
 
 let submitUpload = document.getElementById('submit');
@@ -131,9 +138,17 @@ console.log(formData);
 document.getElementById("submit").addEventListener('click', async (event) => { event.preventDefault();
     
     let RecipeName = document.getElementById('name-text');
-    let RecipeIngredients = document.querySelectorAll('textarea, ing-newline')
-    let RecipeInstructions = document.querySelectorAll('textarea, ins-newline')
-    
+   
+    //let ingDiv = document.getElementById('addIng');
+    //console.log(ingDiv);
+
+    let RecipeIngredients = document.querySelectorAll('.ing-newline');
+    //let insDiv = document.getElementById('addIns');
+    //console.log(insDiv);
+    let RecipeInstructions = document.querySelectorAll('.ins-newline');
+   
+    console.log(RecipeIngredients);
+    console.log(RecipeInstructions);
     let ingrArr = [];
     for (let count = 0; count < RecipeIngredients.length; count++){
         ingrArr.push(RecipeIngredients[count].value);
@@ -144,6 +159,7 @@ document.getElementById("submit").addEventListener('click', async (event) => { e
         insArr.push(RecipeInstructions[count1].value);
     }
     console.log(ingrArr);
+    console.log(insArr);
     const res = await fetch('/recipe/', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
