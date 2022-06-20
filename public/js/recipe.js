@@ -92,9 +92,8 @@ function addIngredient(){
     console.log('oink');
    let addIngLine = document.getElementById('addIng');
    addIngLine.classList.add = 'materialize-textarea';
-   console.log(addIngLine);
    let textarea1 = document.createElement('textarea')
-   textarea1.classList.add = 'materalize-textarea';
+   textarea1.classList.add = 'ing-newline';
    addIngLine.appendChild(textarea1);
 }
 
@@ -107,6 +106,7 @@ function addInstruction(){
     console.log('oink');
    let addIngLine1 = document.getElementById('addInst');
    console.log(addIngLine1);
+   addIngLine1.classList.add ='ing-newline';
    addIngLine1.appendChild(document.createElement('textarea'));
 }
 
@@ -123,7 +123,7 @@ console.log(files);
 formData.append("images", files[img]);
 }
 console.log(files);
-await fetch('/image', {method: 'POT', body: formData});
+await fetch('/image/', {method: 'POST', body: formData});
 console.log(formData);
 
 //var upload = new FormData(photos);
@@ -131,12 +131,22 @@ console.log(formData);
 document.getElementById("submit").addEventListener('click', async (event) => { event.preventDefault();
     
     let RecipeName = document.getElementById('name-text');
-    let RecipeIngredients = document.getElementById('ingredients-text')
-    let RecipeInstructions = document.getElementById('instructions-text')
-    console.log(RecipeIngredients.value,RecipeInstructions.value,RecipeName.value);
+    let RecipeIngredients = document.querySelectorAll('textarea, ing-newline')
+    let RecipeInstructions = document.querySelectorAll('textarea, ins-newline')
+    
+    let ingrArr = [];
+    for (let count = 0; count < RecipeIngredients.length; count++){
+        ingrArr.push(RecipeIngredients[count].value);
+    }
+
+    let insArr = [];
+    for (let count1= 0; count1 < RecipeInstructions.length; count1++){
+        insArr.push(RecipeInstructions[count1].value);
+    }
+    console.log(ingrArr);
     const res = await fetch('/recipe/', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
-        body: JSON.stringify({name: RecipeName.value, ingredients: RecipeIngredients.value, instructions: RecipeInstructions.value})
+        body: JSON.stringify({name: RecipeName.value, ingredients: ingrArr, instructions: insArr})
     });
 });
