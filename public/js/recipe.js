@@ -94,7 +94,9 @@ function addIngredient(){
    let addIngLine = document.getElementById('addIng');
    addIngLine.classList.add = 'materialize-textarea';
    console.log(addIngLine);
-   addIngLine.appendChild(document.createElement('textarea'));
+   let textarea1 = document.createElement('textarea')
+   textarea1.classList.add = 'materalize-textarea';
+   addIngLine.appendChild(textarea1);
 }
 
 let btn2 = document.getElementById("add-instruction");
@@ -110,17 +112,28 @@ function addInstruction(){
 }
 
 let submitUpload = document.getElementById('submit');
-submitUpload.addEventListener('click', uploadPhoto);
+submitUpload.addEventListener('click', uploadPhoto,);
 
 async function uploadPhoto(){
+   
 let formData = new FormData();
-
 let photos = document.getElementById('image-input');
 let files = photos.files[0];
 console.log(files);
 formData.append("images", files);
-await fetch('./image', {method: 'POST', body: formData});
+await fetch('/image', {method: 'POST', body: formData});
 console.log(formData);
 
 //var upload = new FormData(photos);
 }
+document.getElementById("submit").addEventListener('click', async (event) => {
+    let RecipeName = document.getElementById('name-text');
+    let RecipeIngredients = document.getElementById('ingredients-text')
+    let RecipeInstructions = document.getElementById('instructions-text')
+    const res = await fetch('/recipe', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: {name:RecipeName, ingredients:RecipeIngredients, instructions:RecipeInstructions}
+    });
+
+});
