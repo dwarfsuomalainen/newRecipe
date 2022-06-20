@@ -1,5 +1,4 @@
 //const { allowedNodeEnvironmentFlags } = require("process");
-
 let recipe_fetched = document.createElement('div');
 
 if(document.readyState !== "loading") {
@@ -126,14 +125,16 @@ console.log(formData);
 
 //var upload = new FormData(photos);
 }
-document.getElementById("submit").addEventListener('click', async (event) => {
+document.getElementById("submit").addEventListener('click', async (event) => { event.preventDefault();
+    
     let RecipeName = document.getElementById('name-text');
     let RecipeIngredients = document.getElementById('ingredients-text')
     let RecipeInstructions = document.getElementById('instructions-text')
-    const res = await fetch('/recipe', {
+    console.log(RecipeIngredients,RecipeInstructions,RecipeName);
+    const res = await fetch('/recipe/', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
-        body: {name:RecipeName, ingredients:RecipeIngredients, instructions:RecipeInstructions}
+        body: JSON.stringify({name: RecipeName, ingredients: RecipeIngredients, instructions: RecipeInstructions})
     });
 
 });
