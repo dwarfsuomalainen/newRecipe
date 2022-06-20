@@ -137,7 +137,6 @@ document.getElementById("submit").addEventListener('click', async (event) => { e
     const res = await fetch('/recipe/', {
         method: 'POST',
         headers: {'content-type': 'application/json'},
-        body: JSON.stringify({name: RecipeName, ingredients: RecipeIngredients, instructions: RecipeInstructions})
+        body: JSON.stringify({name: RecipeName.value, ingredients: RecipeIngredients.value, instructions: RecipeInstructions.value})
     });
-console.log(res.body);
 });
