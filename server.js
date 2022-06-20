@@ -50,6 +50,7 @@ app.get('/recipe/:food', (req, res)=> {
 app.post('/recipe', (req, res)=> {
    const newRecipe = {
     
+    
     name: req.body.name,
     ingredients: req.body.ingredients,
     instructions: req.body.instructions
