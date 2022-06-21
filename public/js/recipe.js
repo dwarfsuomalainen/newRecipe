@@ -89,29 +89,39 @@ btn.addEventListener('click', addIngredient);
 
 let ingrArr = [];
 function addIngredient(){
-    
-    let RecipeIngredients = document.querySelector(".ing-newline"+[ingrArr.length]);
+
+    let RecipeIngredients = document.getElementById("ingredients-text");
+    console.log(RecipeIngredients.value);
+    if (RecipeIngredients.value === "") {return;}
+    else
+    {ingrArr.push(RecipeIngredients.value);
+    RecipeIngredients.value = "";
+    console.log(ingrArr);}
+
+
+    /*for (let count = 0; count >= ingrArr.length; count++){ 
+    let RecipeIngredients = document.getElementById("ingredients-text"+(count));
+    console.log(RecipeIngredients.value)
     console.log(ingrArr);
     ingrArr.push(RecipeIngredients.value);
     if (ingrArr.length > 0) {
     if (RecipeIngredients.value === "") { console.log('empty string');}
         else {
-        
         let addIngLine = document.getElementById('addIng');
         console.log(addIngLine);
         addIngLine.classList.add = 'materialize-textarea';
        let textarea1 = document.createElement('textarea')
-       textarea1.setAttribute("class","ing-newline"+ [ingrArr.length]);
+       textarea1.setAttribute("id","ingredients-text"+ [ingrArr.length]);
        addIngLine.appendChild(textarea1);
     
        console.log(addIngLine);
        console.log(ingrArr); 
          }} else {return;}                            
-    
+        }
         
     
     //for (let count = 0; count < RecipeIngredients; count++){ }
-  
+  */
 
 
 
@@ -125,8 +135,16 @@ btn2.addEventListener('click', addInstruction);
 let insArr = [];
 function addInstruction(){
 
+    let RecipeInstructions = document.getElementById("instructions-text");
+    console.log(RecipeInstructions.value);
+    if (RecipeInstructions.value === "") {return;}
+    else
+    {insArr.push(RecipeInstructions.value);
+    RecipeInstructions.value = "";
+    console.log(insArr);}
 
-    let RecipeInstructions = document.querySelector(".ins-newline"+[insArr.length]);
+
+    /*let RecipeInstructions = document.querySelector(".ins-newline"+[insArr.length]);
     console.log(RecipeInstructions.value);
     console.log(insArr);
     insArr.push(RecipeInstructions.value);
@@ -143,7 +161,7 @@ function addInstruction(){
         
            console.log(addIngLine1);
            console.log(insArr); 
-             }} else {return;}                   
+             }} else {return;}*/                   
 }
 
 let submitUpload = document.getElementById('submit');
