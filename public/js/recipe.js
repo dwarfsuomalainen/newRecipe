@@ -151,14 +151,19 @@ document.getElementById("submit").addEventListener('click', async (event) => { e
     console.log(RecipeInstructions);
     let ingrArr = [];
     console.log(ingrArr);
-    for (let count = 0; count < RecipeIngredients.length; count++){ if (RecipeIngredients[(count)].value = "") { return;}
-        else {ingrArr.push(RecipeIngredients[(count)].value);}
+    for (let count = 0; count < RecipeIngredients.length; count++){ 
+        if (RecipeIngredients[count].value === "") { console.log('empty string');}
+        else {ingrArr.push(RecipeIngredients[(count)].value);
+        console.log(ingrArr[(count)].value);}
     }
 
     let insArr = [];
     for (let count1= 0; count1 < RecipeInstructions.length; count1++){
+        if (RecipeInstructions[count1].value === "") { console.log('empty string');}
+        else {insArr.push(RecipeInstructions[(count1)].value);
+
         insArr.push(RecipeInstructions[(count1)].value);
-    }
+    }}
     console.log(ingrArr);
     console.log(insArr);
     const res = await fetch('/recipe/', {
