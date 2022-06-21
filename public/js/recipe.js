@@ -87,34 +87,64 @@ let btn = document.getElementById("add-ingredient");
 console.log(btn);
 btn.addEventListener('click', addIngredient);
 
-
+let ingrArr = [];
 function addIngredient(){
-    console.log('oink');
-   let addIngLine = document.getElementById('addIng');
-   addIngLine.classList.add = 'materialize-textarea';
-   let textarea1 = document.createElement('textarea')
-   textarea1.setAttribute('class','ing-newline');
-   addIngLine.appendChild(textarea1);
-   //addIngLine.textarea1.classList.add = 'ing-newline';
-   console.log(addIngLine);
+    
+    let RecipeIngredients = document.getElementById("ingredients-text"+[ingrArr.length]);
+    console.log(RecipeIngredients.value);
+    console.log(ingrArr);
+    ingrArr.push(RecipeIngredients.value);
+    if (ingrArr.length > 0) {
+    if (RecipeIngredients.value === "") { console.log('empty string');}
+        else {
+        
+        let addIngLine = document.getElementById('addIng');
+        console.log(addIngLine);
+        addIngLine.classList.add = 'materialize-textarea';
+       let textarea1 = document.createElement('textarea')
+       textarea1.setAttribute('id','ingredients-text'+ [ingrArr.length]);
+       addIngLine.appendChild(textarea1);
+    
+       console.log(addIngLine);
+       console.log(ingrArr); 
+         }} else {return;}                            
+    
+        
+    
+    //for (let count = 0; count < RecipeIngredients; count++){ }
+  
+
+
+
+
 }
 
 let btn2 = document.getElementById("add-instruction");
 console.log(btn2);
 btn2.addEventListener('click', addInstruction);
 
-
+let insArr = [];
 function addInstruction(){
-    console.log('oink');
-   let addIngLine1 = document.getElementById('addInst');
-   console.log(addIngLine1);
-   addIngLine1.classList.add = 'materialize-textarea';
-   let textarea2 = document.createElement('textarea')
-   textarea2.setAttribute("class", "ins-newline");
-   textarea2.classList.add ='ins-newline';
-   addIngLine1.appendChild(textarea2);
-   //addIngLine1.textarea2.classList.add ='ins-newline';
-   console.log(addIngLine1);
+
+
+    let RecipeInstructions = document.getElementById("instructions-text"+[insArr.length]);
+    console.log(RecipeInstructions.value);
+    console.log(insArr);
+    insArr.push(RecipeInstructions.value);
+    if (insArr.length > 0) {
+        if (RecipeInstructions.value === "") { console.log('empty string');}
+            else { 
+            console.log(insArr);
+            let addIngLine1 = document.getElementById('addInst');
+            console.log(addIngLine1);
+            addIngLine1.classList.add = 'materialize-textarea';
+           let textarea2 = document.createElement('textarea')
+           textarea2.setAttribute('id','instructions-text'+ [insArr.length]);
+           addIngLine1.appendChild(textarea2);
+        
+           console.log(addIngLine1);
+           console.log(insArr); 
+             }} else {return;}                   
 }
 
 let submitUpload = document.getElementById('submit');
@@ -138,30 +168,6 @@ console.log(formData);
 document.getElementById("submit").addEventListener('click', async (event) => { event.preventDefault();
     
     let RecipeName = document.getElementById('name-text');
-   
-    //let ingDiv = document.getElementById('addIng');
-    //console.log(ingDiv);
-
-    let RecipeIngredients = document.querySelectorAll('.ing-newline');
-    //let insDiv = document.getElementById('addIns');
-    //console.log(insDiv);
-    let RecipeInstructions = document.querySelectorAll('.ins-newline');
-   
-    console.log(RecipeIngredients);
-    console.log(RecipeInstructions);
-    let ingrArr = [];
-    console.log(ingrArr);
-    for (let count = 0; count < RecipeIngredients.length; count++){ 
-        if (RecipeIngredients[count].value === "") { console.log('empty string');}
-        else {ingrArr.push(RecipeIngredients[(count)].value);
-        console.log(ingrArr[(count)].value);}
-    }
-
-    let insArr = [];
-    for (let count1= 0; count1 < RecipeInstructions.length; count1++){
-        if (RecipeInstructions[count1].value === "") { console.log('empty string');}
-        else {insArr.push(RecipeInstructions[(count1)].value);
-    }}
     console.log(ingrArr);
     console.log(insArr);
     const res = await fetch('/recipe/', {
