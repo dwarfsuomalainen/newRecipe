@@ -90,7 +90,7 @@ btn.addEventListener('click', addIngredient);
 let ingrArr = [];
 function addIngredient(){
     
-    let RecipeIngredients = document.getElementById("ingredients-text"+[ingrArr.length]);
+    let RecipeIngredients = document.querySelector(".ing-newline"+[ingrArr.length]);
     console.log(RecipeIngredients.value);
     console.log(ingrArr);
     ingrArr.push(RecipeIngredients.value);
@@ -102,7 +102,7 @@ function addIngredient(){
         console.log(addIngLine);
         addIngLine.classList.add = 'materialize-textarea';
        let textarea1 = document.createElement('textarea')
-       textarea1.setAttribute('id','ingredients-text'+ [ingrArr.length]);
+       textarea1.setAttribute("class","ing-newline"+ [ingrArr.length]);
        addIngLine.appendChild(textarea1);
     
        console.log(addIngLine);
@@ -127,7 +127,7 @@ let insArr = [];
 function addInstruction(){
 
 
-    let RecipeInstructions = document.getElementById("instructions-text"+[insArr.length]);
+    let RecipeInstructions = document.querySelector(".ins-newline"+[insArr.length]);
     console.log(RecipeInstructions.value);
     console.log(insArr);
     insArr.push(RecipeInstructions.value);
@@ -139,7 +139,7 @@ function addInstruction(){
             console.log(addIngLine1);
             addIngLine1.classList.add = 'materialize-textarea';
            let textarea2 = document.createElement('textarea')
-           textarea2.setAttribute('id','instructions-text'+ [insArr.length]);
+           textarea2.setAttribute('class','ins-newline'+ [insArr.length]);
            addIngLine1.appendChild(textarea2);
         
            console.log(addIngLine1);
