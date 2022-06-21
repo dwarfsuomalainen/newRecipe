@@ -91,7 +91,6 @@ let ingrArr = [];
 function addIngredient(){
     
     let RecipeIngredients = document.querySelector(".ing-newline"+[ingrArr.length]);
-    console.log(RecipeIngredients.value);
     console.log(ingrArr);
     ingrArr.push(RecipeIngredients.value);
     if (ingrArr.length > 0) {
