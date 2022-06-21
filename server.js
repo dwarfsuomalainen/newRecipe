@@ -16,13 +16,14 @@ const { data } = require("jquery");
 const _ = require('lodash');
 const morgan = require('morgan');
 const cors = require('cors');
-
+const bodyParser = require('body-parser');
 
 //handlebars
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
+app.use(bodyParser.json());
 //app.engine('handlebars', exphbs.engine({defaultLayout: 'main'}));
 //app.set('view engine', 'handlebars');
 
@@ -67,8 +68,8 @@ app.post('/recipe/', (req, res)=> {
 //upload image
 app.use(formData.parse());    
 app.post('/image/', async (req, res)=> {
-    
-    //console.log(req.files);
+    //console.log(req);
+    console.log(req.files);
     res.send(console.log('uploaded'));
     //res.redirect('/');
     /*try {

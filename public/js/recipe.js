@@ -125,7 +125,7 @@ async function uploadPhoto(){
 let formData = new FormData();
 let photos = document.getElementById('image-input');
 let files = photos.files;
-for (let img=0; img < files.lenght; img++) {
+for (let img=0; img < files.length; img++) {
 console.log(files);
 formData.append("images", files[img]);
 }
