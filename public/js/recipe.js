@@ -130,7 +130,7 @@ console.log(files);
 formData.append("images", files[img]);
 }
 console.log(files);
-await fetch('/image/', {method: 'POST', body: formData});
+await fetch('/image', {method: 'POST', body: formData});
 console.log(formData);
 
 //var upload = new FormData(photos);
@@ -150,8 +150,9 @@ document.getElementById("submit").addEventListener('click', async (event) => { e
     console.log(RecipeIngredients);
     console.log(RecipeInstructions);
     let ingrArr = [];
-    for (let count = 0; count < RecipeIngredients.length; count++){
-        ingrArr.push(RecipeIngredients[(count)].value);
+    console.log(ingrArr);
+    for (let count = 0; count < RecipeIngredients.length; count++){ if (RecipeIngredients[(count)].value = "") { return;}
+        else {ingrArr.push(RecipeIngredients[(count)].value);}
     }
 
     let insArr = [];

@@ -67,7 +67,7 @@ app.post('/recipe/', (req, res)=> {
 
 //upload image
 app.use(formData.parse());    
-app.post('/image/', async (req, res)=> {
+app.post('/image', async (req, res)=> {
     //console.log(req);
     console.log(req.files);
     res.send(console.log('uploaded'));
