@@ -4,14 +4,14 @@
 <head>
     <title>Recipe</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" href="./stylesheets/styles.css"/>
+    
     
     <meta name="viewport" content="width=device-width, initial-scale=1" />
      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+      <link rel="stylesheet" type="text/css" href="./stylesheets/styles.css"/>
 </head>
 
 <body>
@@ -19,11 +19,22 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Recipe app</applet></a>
+          <a href="https://insanelygoodrecipes.com/italian-recipes/" class="brand-logo">Recipe app</applet></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="">Recipe 1</a></li>
+            <nav>
+              <div class="nav-wrapper">
+                <form id="forfSearch">
+                  <div class="input-field">
+                    <input id="search" type="search" required>
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                  </div>
+                </form>
+              </div>
+            </nav>
+            <!-- <li><a href="">Recipe 1</a></li>
             <li><a href="">Recipe 2</a></li>
-            <li><a href="">Recipe 3</a></li>
+            <li><a href="">Recipe 3</a></li>-->
           </ul>
         </div>
       </nav>
@@ -36,10 +47,15 @@
     <h3>instructions</h3>
     <h4 id = recipeInstructions></h4>
     </div>
-    <div class="col">
+    <div class="col" id="addCat">
     
-    <label for="name-text">name</label>
+    <div id="images">
+      
+    </div>
+
+  
     <input type="text" id="name-text" name="name">
+    <label for="name-text">name</label>
     <h4>Ingredients</h4>
     <div class="row">
           <form class="col s12">
@@ -65,25 +81,64 @@
         <button class="btn" id="add-instruction" type="button">Add instruction</button>
     
     </form>
-    
-        
-            <div class="file-field input-field">
-                <label for="image-input">Upload your photos</label><br><br><br>
+
+
+            <div class="file-field-input">
+                <label for="camera-file-input"></label><br><br><br>
               <div class="btn">
                 
-                <span>Your photos to upload</span>
                 
                 
-                <input type="file" id="image-input"accept="image/png, image/jpeg" multiple>
+                <form action="/images/" method="POST" multiple enctype="multipart/form-data">
+                <label>
+                  <input type="file" id="camera-file-input"accept="image/png, image/jpeg" multiple name="camera-file-input">
+                  <span>Open camera</span>
+                  <span>Photos</span>
+                </label>
+              </form>
                 
               </div>
-              <div class="file-path-wrapper">
+              <!--<div class="file-path-wrapper">
                 <br><br><br>
                 <input class="file-path validate" type="text" placeholder="Upload one or more files">
-              </div>
+              </div>-->
             </div>
           </form>
         
+
+<!--Categories of recipies-->
+<!--<label for="catForm ">Categories</label>
+<form action="#" id="catForm" name="Categories">
+  <p>
+    <label>
+      <input type="checkbox" name="category" id="catOne" onclick="disableCheckBox(this)"/>
+      <span></span>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="checkbox" name="category" id="catTwo" onclick="disableCheckBox(this)"/>
+      <span></span>
+    </label>
+  </p>
+  <p>
+    <label>
+      <input type="checkbox" name="category" id="catThree"onclick="disableCheckBox(this)"/>
+      <span></span>
+    </label>
+  </p>-->
+  
+  
+  <br>
+<div id="chkDiv" class="checkboxes"> 
+<label for="catForm ">Categories</label>
+<form id="catForm" name="Categories">
+</form>
+</div>
+
+
+
+
 
     <br><br><br>
     <button class="btn" id="submit" type="submit" >Submit</button>
@@ -93,5 +148,6 @@
     </div>
     </div>
     <script src="./js/recipe.js"></script>
+    
     </body>
 </html>
